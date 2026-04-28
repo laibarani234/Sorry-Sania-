@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sorry Bestie 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    overflow: hidden;
+    background: linear-gradient(135deg,#ffe6f0,#ffd1dc);
+    text-align: center;
+}
+
+/* TITLE */
+h1 {
+    color: #ff2e63;
+    margin-top: 40px;
+    font-size: 42px;
+}
+
+/* LONG TEXT BOX */
+.box {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* BUTTON */
+#btn {
+    position: absolute;
+    padding: 15px 25px;
+    border-radius: 30px;
+    background: #ff2e63;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+/* HEARTS */
+.heart {
+    position: absolute;
+    animation: float 6s linear infinite;
+    font-size: 22px;
+}
+
+@keyframes float {
+    0% {transform: translateY(0); opacity: 1;}
+    100% {transform: translateY(-900px); opacity: 0;}
+}
+
+/* EMOJIS */
+.sticker {
+    position: absolute;
+    font-size: 30px;
+    animation: floatUp 7s linear infinite;
+}
+
+@keyframes floatUp {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-1000px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>I'm Really Sorry Bestie 🥺💖</h1>
+
+<div class="box">
+
+<p>
+Mujhe sach me bohat afsos hai ke meri wajah se tum hurt hui 💔<br><br>
+
+Mera kabhi bhi yeh intention nahi tha ke tumhari feelings ko dukh pohanchao 😔<br><br>
+
+Tum meri life ka bohat important hissa ho 💖 aur tumhari importance ko main kabhi ignore nahi kar sakti<br><br>
+
+Main jaanti hoon ke galti meri thi   🥺 mujy pata hai tumhy us time acha nhe laga tha ky Saturday ko mil lyna tumhary reaction sy pata chal gaya tha tumhy acha nhe laga <br><br>
+
+ 
+Tumhy itna to jaan he gsi hoo ab  💞<br><br>
+
+I really miss you  dil se sorry bol rahi hoon 😭💖
+</p>
+
+</div>
+
+<button id="btn" onmouseover="moveBtn()">Forgive Me 💕</button>
+
+<script>
+
+/* move button game */
+function moveBtn(){
+    let b = document.getElementById("btn");
+    let x = Math.random()*(window.innerWidth-100);
+    let y = Math.random()*(window.innerHeight-100);
+    b.style.left = x + "px";
+    b.style.top = y + "px";
+}
+
+/* hearts */
+setInterval(()=>{
+    let h = document.createElement("div");
+    h.classList.add("heart");
+    h.innerHTML = "💖";
+    h.style.left = Math.random()*100 + "vw";
+    document.body.appendChild(h);
+
+    setTimeout(()=>h.remove(),6000);
+},300);
+
+/* cute emojis */
+let emojis = ["🥺","💖","🧸","🎀","💞","💌"];
+
+setInterval(()=>{
+    let s = document.createElement("div");
+    s.classList.add("sticker");
+    s.innerHTML = emojis[Math.floor(Math.random()*emojis.length)];
+    s.style.left = Math.random()*100 + "vw";
+    s.style.top = "100vh";
+    document.body.appendChild(s);
+
+    setTimeout(()=>s.remove(),7000);
+},500);
+
+</script>
+
+</body>
+</html>
