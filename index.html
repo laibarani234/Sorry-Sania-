@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Love Sorry Game 💖</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    overflow: hidden;
+}
+
+/* LOGIN SCREEN */
+#loginPage {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: none;
+    background: #ff2e63;
+    color: white;
+    cursor: pointer;
+}
+
+/* MAIN PAGE */
+#mainPage {
+    display: none;
+    text-align: center;
+    background: linear-gradient(135deg,#ffe6f0,#ffd1dc);
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    color: #ff2e63;
+    margin-top: 50px;
+}
+
+/* GAME BUTTON */
+#runBtn {
+    position: absolute;
+    padding: 15px 25px;
+    background: #ff2e63;
+    color: white;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+/* hearts */
+.heart {
+    position: absolute;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-900px);}
+}
+
+/* stickers */
+.sticker {
+    position: absolute;
+    width: 60px;
+    animation: floatSticker 8s linear infinite;
+}
+
+@keyframes floatSticker {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-1000px);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- 🎶 MUSIC -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a7b2f7.mp3?filename=romantic-110397.mp3" type="audio/mp3">
+</audio>
+
+<!-- LOGIN -->
+<div id="loginPage">
+    <h2>💌 Enter to Forgiveness World</h2>
+    <input type="text" placeholder="Your Name"><br>
+    <input type="password" placeholder="Secret Code"><br>
+    <button onclick="enter()">Login 💖</button>
+</div>
+
+<!-- MAIN -->
+<div id="mainPage">
+
+<h1>I'm Sorry Bestie 🥺💖</h1>
+<p>Catch the button to forgive me 😭💌</p>
+
+<button id="runBtn" onmouseover="moveBtn()">Forgive Me 💕</button>
+
+</div>
+
+<script>
+
+function enter(){
+    document.getElementById("loginPage").style.display="none";
+    document.getElementById("mainPage").style.display="block";
+}
+
+/* moving button game */
+function moveBtn(){
+    let btn = document.getElementById("runBtn");
+    let x = Math.random() * (window.innerWidth - 100);
+    let y = Math.random() * (window.innerHeight - 100);
+    btn.style.left = x + "px";
+    btn.style.top = y + "px";
+}
+
+/* hearts */
+setInterval(()=>{
+    let h = document.createElement("div");
+    h.classList.add("heart");
+    h.innerHTML = "💖";
+    h.style.left = Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+},300);
+
+/* cute stickers (PNG style) */
+let imgs = [
+"https://i.imgur.com/4AiXzf8.png",
+"https://i.imgur.com/OdL0XPt.png",
+"https://i.imgur.com/8Km9tLL.png"
+];
+
+setInterval(()=>{
+    let s = document.createElement("img");
+    s.classList.add("sticker");
+    s.src = imgs[Math.floor(Math.random()*imgs.length)];
+    s.style.left = Math.random()*100+"vw";
+    s.style.top = "100vh";
+    document.body.appendChild(s);
+
+    setTimeout(()=>s.remove(),8000);
+},800);
+
+</script>
+
+</body>
+</html>
